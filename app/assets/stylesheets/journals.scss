@@ -133,7 +133,7 @@ $black-green: #30511D;
   right: 17px;
   animation: eye 4s linear infinite normal 0.5s;
 }
-.head .mouth {
+.head .mout {
   background: #ecf0f1;
   border-radius: 30px;
   bottom: 2px;
@@ -243,7 +243,7 @@ position:absolute;
 }
 @keyframes eye{
 	from { }
-  79% {height:5px;}
+    79% {height:5px;}
 	80% {height:0px;}
 	85%{height:5px;}
 	to {height:5px;}
@@ -257,16 +257,14 @@ position:absolute;
 }
 
 
+
 .calImg{
   height: 117px;
   position: relative;
   left: -16px;
 }
 
-// body {
-//   background:#ffffff;
-//   text-align:center;
-// }
+
 
 div .btn.createJournalButton{
   height: 120px;
