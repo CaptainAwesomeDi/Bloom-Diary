@@ -1,14 +1,11 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import ReactDOM from 'react-dom'
 import React from 'react'
-import PropTypes from 'prop-types'
 import NavbarComponent from './Navbar'
 import Footer from './Footer'
 import Profile from './Profile'
 import Home from './Home'
 import User from './User'
 import JournalsList from './JournalsList'
-import Journal from './Journal'
 
 const NoMatch = ({ location }) => (
   <div>
