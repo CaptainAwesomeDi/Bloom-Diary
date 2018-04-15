@@ -44,8 +44,7 @@ class JournalsList extends React.Component {
         </div>
         {/* end Flower */}
 
-        {this.state.listOfJournal.map(journal =>
-          
+        {this.state.listOfJournal.map(journal =>         
           <div key={journal.id}>
             
             <div className="journals-container">
