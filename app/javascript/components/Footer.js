@@ -6,10 +6,10 @@ class Footer extends React.Component {
     const Footer = styled.footer`
       margin: 0;
       padding: 0;
-      font-size: 1em;
+      font-size: 0.8em;
       text-align: center;
-      color: palevioletred;
-      background-color: grey;
+      color:  rgb(238, 236, 236);
+      background-color: #965252;
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -17,7 +17,7 @@ class Footer extends React.Component {
 
         return (
             <React.Fragment>
-                <Footer>This is a Footer</Footer>
+                <Footer>Copyright © 2018 Final Project  .::.  Designed and Built By Bloom Diary Group</Footer>
             </React.Fragment>
         );
     }

@@ -17,7 +17,9 @@ constructor(props){
           <form method="post" action="/watson" />
         </div>
         <h1>{this.props.userSession}</h1>
+
         {(this.props.userSession!==null)?<Grid/>: ""}
+
       </React.Fragment>
     );
   }

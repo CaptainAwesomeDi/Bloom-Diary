@@ -133,7 +133,7 @@ $black-green: #30511D;
   right: 17px;
   animation: eye 4s linear infinite normal 0.5s;
 }
-.head .mouth {
+.head .mout {
   background: #ecf0f1;
   border-radius: 30px;
   bottom: 2px;
@@ -243,7 +243,7 @@ position:absolute;
 }
 @keyframes eye{
 	from { }
-  79% {height:5px;}
+    79% {height:5px;}
 	80% {height:0px;}
 	85%{height:5px;}
 	to {height:5px;}
@@ -255,7 +255,23 @@ position:absolute;
 	75% {left:40px;transform:rotate(5deg);}
 	100% {left:34px;transform:rotate(-5deg);}
 }
-// body {
-//   background:#ffffff;
-//   text-align:center;
-// }
+
+
+
+.calImg{
+  height: 117px;
+  position: relative;
+  left: -16px;
+}
+
+
+
+div .btn.createJournalButton{
+  height: 120px;
+  width: 120px;
+  color: white;
+  border: 1px solid white;
+  display: inline-block;
+  transition: background-color .2s ease-out;
+  cursor: pointer;
+}

@@ -2,6 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 // // import styled from "styled-components"
 import { Modal, Input, Button } from "react-materialize"
+
+import happyFlower from "../../assets/images/flying.gif"
+import sadFlower from "../../assets/images/crying.gif" 
+
+
 import RichTextEditor from 'react-rte'
 
 export default class Journal extends React.Component {
@@ -10,7 +15,10 @@ export default class Journal extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ content: RichTextEditor.createValueFromString(newProps.content, 'html') });
+    this.setState({
+      content: RichTextEditor.createValueFromString(newProps.content, 'html'),
+      data: newProps.data || null
+    });
   }
 
   onChange = (content) => {
@@ -25,12 +33,14 @@ export default class Journal extends React.Component {
     const { year, month, day } = this.props;
     const { content } = this.state;
 
+
     console.log("click journal submit!");
     
     $.post("/watson", { content: content.toString('markdown'), year, month, day }, (response) => {
       console.log("response:", response);
       if (!response.error){
         this.closeModal();
+
       } else {
         alert(response.error)
       }
@@ -41,12 +51,29 @@ export default class Journal extends React.Component {
     return `journalModal-${this.props.day}`;
   }
 
+
   get dateString() {
     const { year, month, day } = this.props;
     return `${year}-${month}-${day}`;
   }
 
+
   render() {
+
+    let img;
+    let buttonContent = this.dateString;
+    if (this.state.data) {
+      let sentiment_score = this.state.data && this.state.data.sentiment_score;
+      if (sentiment_score < 0) {
+        img = <img className="calImg" src={ sadFlower } alt="" />;
+      } else {
+        img = <img className="calImg" src={ happyFlower } alt="" />;
+      }
+      buttonContent = img;
+    } 
+
+
+
     console.log('Journal::render');
     return (
       <React.Fragment>
@@ -56,7 +83,7 @@ export default class Journal extends React.Component {
           id={this.uniqueId}
           trigger={
             <Button className="createJournalButton">
-              {this.dateString}
+              {buttonContent}
             </Button>
           }
           actions={
@@ -71,6 +98,7 @@ export default class Journal extends React.Component {
             onChange={this.onChange}
             />
         </Modal>
+
       </React.Fragment>
     );
   }
